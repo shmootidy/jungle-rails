@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
       )
 
     @review.save!
-    redirect_to '/'
+    redirect_to product
   end
 
 end
