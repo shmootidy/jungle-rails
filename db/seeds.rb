@@ -132,21 +132,27 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## USERS
+User.destroy_all
+
+User.create! first_name: 'Dog', last_name: 'Woofbark', password: 'woof'
+User.create! first_name: 'Cat', last_name: 'Meowface', password: 'meow'
+
 ## REVIEWS
 Review.destroy_all
 
 Review.create!({
   product_id: 1,
-  # user_id: 1,
+  user_id: 1,
   description: 'Holy shit! This shirt has changed my life. I\'d give it 1000 points if I could!',
   rating: 5
 })
 
-# reviews.create!({
-#   product_id: 1,
-#   user_id: 2,
-#   description: 'Gross. Do NOT eat this. Dry and nasty.',
-#   rating: 1
-# })
+Review.create!({
+  product_id: 1,
+  user_id: 2,
+  description: 'Gross. Do NOT eat this. Dry and nasty.',
+  rating: 1
+})
 
 puts "DONE!"
