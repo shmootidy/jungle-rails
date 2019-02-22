@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create]
   get '/logout' => 'sessions#logout'
 
-  resources :products, only: [:index, :show]
+  resources :products, only: [:index, :show] do
+    resources :reviews, only: [:create]
+  end
   resources :categories, only: [:show]
 
   resource :cart, only: [:show] do
