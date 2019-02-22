@@ -7,10 +7,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(
       product: product,
       rating: params[:review].values[1].to_i,
-      description: params[:review].values[0].to_s
+      description: params[:review].values[0].to_s,
+      user: current_user
       )
-
-    @review.user = current_user
 
     @review.save!
     redirect_to '/'
