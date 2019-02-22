@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create]
-  get '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#logout'
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
