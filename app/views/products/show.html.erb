@@ -30,7 +30,11 @@
           </dd>
           <dt>Avg Rating</dt>
           <dd>
+            <% unless @product.reviews == [] %>
             <strong><%= Review.where(product_id: @product.id).average(:rating).round(1) %>/5</strong>
+            <% else %>
+            <span>[no reviews yet]</span>
+            <% end %>
           </dd>
         </dl>
       </div>
