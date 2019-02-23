@@ -20,6 +20,12 @@ class ReviewsController < ApplicationController
     redirect_to product
   end
 
+  def destroy
+    @review = Review.find params[:review_id]
+    @review.destroy
+    redirect_to [:product], notice: 'Review deleted!'
+  end
+
   protected #not 100% sure I need this here, or if it should be private instead
 
   def require_login

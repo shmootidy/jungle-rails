@@ -1,7 +1,7 @@
   <div>
     "<%= review.description %>"
     <% if current_user == review.user %>
-      <#% raise 'here' %>
+      <%= link_to fa_icon('trash'), product_review_path(:review_id => review.id, :id => review.product_id, :product_id => review.product_id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
     <strong><%= review.rating %>/5</strong>
   </div>
