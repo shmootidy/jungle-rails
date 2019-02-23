@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
-      redirect_to '/'
+      flash.now[:alert] = 'Log in unsuccessful'
+      render new_session_path
     end
   end
 

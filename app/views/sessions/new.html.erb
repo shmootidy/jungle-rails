@@ -1,6 +1,11 @@
 <h1>Login</h1>
 
 <%= form_tag sessions_path do %>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-danger">
+      <%= content_tag :div, value, class: "flash #{key}" %>
+    </div>
+  <% end %>
   Email: <%= text_field_tag :email %>
   Password: <%= password_field_tag :password %>
   <%= submit_tag "Submit" %>
