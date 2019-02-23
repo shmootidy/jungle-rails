@@ -41,7 +41,7 @@
 
     <div class="row">
       <h4>Reviews</h4>
-      <% @product.reviews.each do |review| %>
+      <% @product.reviews.reverse_each do |review| %>
         <%= render 'review', review: review %>
       <% end %>
     </div>
