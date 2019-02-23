@@ -1,9 +1,5 @@
 class ReviewsController < ApplicationController
 
-  # def new
-  #   @review = Review.new
-  # end
-
   def create
 
     product = Product.find(params[:product_id])
@@ -20,7 +16,6 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to product
     else
-      # render :new
       redirect_to product
     end
 
