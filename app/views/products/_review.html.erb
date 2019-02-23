@@ -1,4 +1,7 @@
   <div>
     "<%= review.description %>"
+    <% if current_user == review.user %>
+      <#% raise 'here' %>
+    <% end %>
     <strong><%= review.rating %>/5</strong>
   </div>
