@@ -36,6 +36,11 @@ class ApplicationController < ActionController::Base
 
   def authorize
     redirect_to new_session_path unless current_user
-  end
+    end
+
+    def sold_out? product
+      product.quantity == 0
+    end
+    helper_method :sold_out?
 
 end
