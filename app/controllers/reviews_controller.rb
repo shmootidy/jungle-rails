@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-  # before_action :authenticate
+  before_action :require_login
 
   def create
     product = Product.find(params[:product_id])
@@ -20,5 +20,13 @@ class ReviewsController < ApplicationController
     redirect_to product
   end
 
+  protected #not 100% sure I need this here, or if it should be private instead
+
+  def require_login
+    unless current_user
+      flash[:error] = "You must be logged in to do that."
+      redirect_to new_session_url
+    end
+  end
 
 end
