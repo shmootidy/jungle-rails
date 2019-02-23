@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
 
-  def create
+  # before_action :authenticate
 
+  def create
     product = Product.find(params[:product_id])
 
     @review = Review.new(
@@ -13,12 +14,11 @@ class ReviewsController < ApplicationController
 
     @review.save
 
-    if @review.save
-      redirect_to product
-    else
-      redirect_to product
+    unless @review.save
+      # render(?) error message here
     end
-
+    redirect_to product
   end
+
 
 end
