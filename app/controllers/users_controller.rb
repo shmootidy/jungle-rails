@@ -6,10 +6,15 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to '/'
+    unless unique_email?
+      if @user.save
+        session[:user_id] = @user.id
+        redirect_to '/'
+      else
+        render :new
+      end
     else
+      flash.now[:error] = 'Email exists in database. Please log in or use a new email address.'
       render :new
     end
   end
@@ -25,5 +30,11 @@ class UsersController < ApplicationController
       :password_confirmation
     )
   end
+
+  def unique_email?
+    user = User.where(email: params[:user][:email])
+    user[0]
+  end
+
 
 end
