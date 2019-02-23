@@ -28,6 +28,10 @@
               <%= render 'review', review: review, current_user: current_user %>
             <% end %>
           </dd>
+          <dt>Avg Rating</dt>
+          <dd>
+            <strong><%= Review.where(product_id: @product.id).average(:rating).round(1) %>/5</strong>
+          </dd>
         </dl>
       </div>
     </div>
