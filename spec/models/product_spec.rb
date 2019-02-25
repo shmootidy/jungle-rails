@@ -16,11 +16,13 @@ RSpec.describe Product, type: :model do
 
     it 'is valid with valid attributes' do
       expect(subject).to be_valid
+      expect(subject.errors).to be_empty
     end
 
     it 'is not valid without a name' do
       subject.name = nil
       expect(subject).to_not be_valid
+      expect(subject.errors[:name].first).to eq 'can\'t be blank'
     end
 
     it 'is not valid without a price' do
