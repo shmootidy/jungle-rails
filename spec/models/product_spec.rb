@@ -3,15 +3,16 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
 
   describe 'Validations' do
+    let(:category) { Category.create }
+    subject { described_class.new(
+      name: 'a name',
+      price: 123,
+      quantity: 123,
+      category_id: category.id
+      )
+    }
     it 'is valid with valid attributes' do
-      @category = Category.create
-      @product = Product.new(
-        name: 'a name',
-        price: 123,
-        quantity: 123,
-        category_id: @category.id
-        )
-      expect(@product).to be_valid
+      expect(subject).to be_valid
     end
 
     it 'is not valid without a name'
