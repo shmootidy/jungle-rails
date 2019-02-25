@@ -65,6 +65,8 @@ RSpec.describe User, type: :model do
   describe '.authenticate_with_credentials' do
     it 'should return an instance of the user if successfully authenticated' do
       expect(User.authenticate_with_credentials(subject.email, subject.password)).to be_instance_of(User)
+      subject.email = ' bat@man.com' # cannot pass email directly or test will not recognize subject instance
+      expect(User.authenticate_with_credentials(subject.email, subject.password)).to be_instance_of(User)
     end
 
     it 'should return nil if not successfully authenticated' do
