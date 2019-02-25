@@ -23,7 +23,10 @@ RSpec.describe Product, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it 'is not valid without a price'
+    it 'is not valid without a price' do
+      subject.price_cents = nil
+      expect(subject).to_not be_valid
+    end
     it 'is not valid without a quantity'
     it 'is not valid without a category'
   end
