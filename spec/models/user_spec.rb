@@ -56,4 +56,9 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '.authenticate_with_credentials' do
+    it 'should return an instance of the user if successfully authenticated'
+    it 'should return nil if not successfully authenticated'
+  end
+
 end
