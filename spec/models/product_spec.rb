@@ -34,11 +34,13 @@ RSpec.describe Product, type: :model do
     it 'is not valid without a quantity' do
       subject.quantity = nil
       expect(subject).to_not be_valid
+      expect(subject.errors[:quantity].first).to eq 'can\'t be blank'
     end
 
     it 'is not valid without a category' do
       subject.category_id = nil
       expect(subject).to_not be_valid
+      expect(subject.errors[:category_id].first).to eq nil
     end
 
   end
