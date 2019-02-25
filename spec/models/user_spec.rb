@@ -22,8 +22,19 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it 'is not valid without a unique email address'
-    it 'is not valid without an email present'
+    it 'is not valid without a unique email address' do
+      @second_user = described_class.create(
+        first_name: 'Cat',
+        last_name: 'Woman',
+        email: 'catwo@man.com',
+        password: 'password123',
+        password_confirmation: 'password123'
+        )
+      subject.email = 'catwo@man.com'
+      expect(subject).to_not be_valid
+    end
+
+    it 'is not valid without an email address present'
     it 'is not valid without a first name present'
     it 'is not valid without a last name present'
   end
