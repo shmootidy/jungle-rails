@@ -17,7 +17,11 @@ RSpec.describe User, type: :model do
       expect(subject).to be_valid
     end
 
-    it 'is not valid without matching passwords'
+    it 'is not valid without matching passwords' do
+      subject.password = 'admin123'
+      expect(subject).to_not be_valid
+    end
+
     it 'is not valid without a unique email address'
     it 'is not valid without an email present'
     it 'is not valid without a first name present'
