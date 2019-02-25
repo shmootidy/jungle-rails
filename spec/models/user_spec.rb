@@ -39,8 +39,15 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it 'is not valid without a first name present'
-    it 'is not valid without a last name present'
+    it 'is not valid without a first name present' do
+      subject.first_name = nil
+      expect(subject).to_not be_valid
+    end
+
+    it 'is not valid without a last name present' do
+      subject.last_name = nil
+      expect(subject).to_not be_valid
+    end
   end
 
 end
