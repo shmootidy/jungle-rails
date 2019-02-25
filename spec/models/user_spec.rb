@@ -48,6 +48,12 @@ RSpec.describe User, type: :model do
       subject.last_name = nil
       expect(subject).to_not be_valid
     end
+
+    it 'is not valid without a password of at least 6 characters' do
+      subject.password = 'admin'
+      subject.password_confirmation = 'admin'
+      expect(subject).to_not be_valid
+    end
   end
 
 end
