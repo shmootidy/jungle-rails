@@ -11,6 +11,12 @@ RSpec.describe User, type: :model do
     )
   }
 
+  # before :each do
+  #   @subject = User.create({
+
+  #   })
+  # end
+
   describe 'Validations' do
 
     it 'is valid with valid attributes' do
@@ -23,15 +29,14 @@ RSpec.describe User, type: :model do
     end
 
     it 'is not valid without a unique email address' do
-      @second_user = described_class.create(
+      second_user = described_class.create(
         first_name: 'Cat',
         last_name: 'Woman',
-        email: 'catwo@man.com',
+        email: 'bat@man.com',
         password: 'password123',
         password_confirmation: 'password123'
         )
-      subject.email = 'catwo@man.com'
-      expect(subject).to_not be_valid
+      expect(second_user).to_not be_valid
     end
 
     it 'is not valid without an email address present' do
@@ -56,11 +61,14 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # describe '.authenticate_with_credentials' do
-  #   it 'should return an instance of the user if successfully authenticated' do
-  #     expect(subject).to_not be_valid
-  #   end
-  #   it 'should return nil if not successfully authenticated'
-  # end
+
+  describe '.authenticate_with_credentials' do
+    it 'should return an instance of the user if successfully authenticated' do
+      expect(User.authenticate_with_credentials(subject.email, subject.password)).to be_instance_of(User)
+    end
+
+    it 'should return nil if not successfully authenticated'
+
+  end
 
 end
