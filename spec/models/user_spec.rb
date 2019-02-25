@@ -69,6 +69,7 @@ RSpec.describe User, type: :model do
 
     it 'should return nil if not successfully authenticated' do
       expect(User.authenticate_with_credentials(subject.email, 'wrongpassword')).to be nil
+      expect(User.authenticate_with_credentials('test@test.com', subject.password)).to be nil
     end
 
   end
