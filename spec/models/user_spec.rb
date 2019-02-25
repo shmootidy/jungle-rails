@@ -29,10 +29,10 @@ RSpec.describe User, type: :model do
     end
 
     it 'is not valid without a unique email address' do
-      second_user = described_class.create(
+      second_user = described_class.new(
         first_name: 'Cat',
         last_name: 'Woman',
-        email: 'bat@man.com',
+        email: subject.email, # must be passed this way, not as string, for test to pass; otherwise, test seems to not know about the instance of Batman
         password: 'password123',
         password_confirmation: 'password123'
         )
@@ -67,7 +67,9 @@ RSpec.describe User, type: :model do
       expect(User.authenticate_with_credentials(subject.email, subject.password)).to be_instance_of(User)
     end
 
-    it 'should return nil if not successfully authenticated'
+    it 'should return nil if not successfully authenticated' do
+      expect(User.authenticate_with_credentials(subject.email, 'wrongpassword')).to be nil
+    end
 
   end
 
