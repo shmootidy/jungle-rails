@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  subject { described_class.new(
+  subject { described_class.create(
     first_name: 'Bat',
     last_name: 'Man',
     email: 'bat@man.com',
@@ -56,9 +56,11 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '.authenticate_with_credentials' do
-    it 'should return an instance of the user if successfully authenticated'
-    it 'should return nil if not successfully authenticated'
-  end
+  # describe '.authenticate_with_credentials' do
+  #   it 'should return an instance of the user if successfully authenticated' do
+  #     expect(subject).to_not be_valid
+  #   end
+  #   it 'should return nil if not successfully authenticated'
+  # end
 
 end
