@@ -28,6 +28,7 @@ RSpec.describe Product, type: :model do
     it 'is not valid without a price' do
       subject.price_cents = nil
       expect(subject).to_not be_valid
+      expect(subject.errors[:price_cents].first).to eq 'is not a number'
     end
 
     it 'is not valid without a quantity' do
