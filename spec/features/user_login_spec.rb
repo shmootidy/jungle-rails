@@ -20,5 +20,6 @@ RSpec.feature "UserLogins", type: :feature, js: true do
     #DEBUG
     save_screenshot 'user-login.jpg'
     #VERIFY
+    expect(page).to have_text "Signed in as #{@user.first_name}"
   end
 end
