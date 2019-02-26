@@ -7,7 +7,7 @@ RSpec.feature "HomePages", type: :feature, js: true do
   visit root_path
 
   # DEBUG / VERIFY
-  save_screenshot
+  save_screenshot('screenshot.png')
   end
 
 end
