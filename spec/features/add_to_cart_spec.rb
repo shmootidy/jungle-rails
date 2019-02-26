@@ -19,7 +19,7 @@ RSpec.feature "AddToCarts", type: :feature, js: true do
   scenario 'A user can add an item to cart by clicking the Add to Cart button on a product on the home page' do
     #ACT
     visit '/'
-      # click on add to cart
+    first('button.btn.btn-primary').click
     #DEBUG
     save_screenshot 'add-to-cart.jpg'
     #VERIFY
