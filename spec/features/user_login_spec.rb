@@ -18,7 +18,7 @@ RSpec.feature "UserLogins", type: :feature, js: true do
     fill_in 'password', with: 'password123'
     click_on 'Submit'
     #DEBUG
-    save_screenshot 'user-login.jpg'
+    # save_screenshot 'user-login.jpg'
     #VERIFY
     expect(page).to have_text "Signed in as #{@user.first_name}"
   end
