@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "ProductDetails", type: :feature, js: true do
 
+  #SETUP
   before :each do
     @category = Category.create! name: 'Apparel'
 
@@ -16,6 +17,12 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     end
   end
 
-  scenario 'A user can navigate from the home page to the product detail page by clicking on a product'
+  scenario 'A user can navigate from the home page to the product detail page by clicking on a product' do
+    #ACT
+    #DEBUG
+    save_screenshot('screenshot.png')
+    #VERIFY
+
+  end
 
 end
