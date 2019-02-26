@@ -22,8 +22,8 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     visit '/'
     first('article.product header a').click
     #DEBUG
-    sleep 2
-    save_screenshot('product-details.png')
+    # sleep 2
+    # save_screenshot('product-details.png')
     #VERIFY
     expect(page).to have_css 'article.product-detail'
   end
