@@ -21,7 +21,7 @@ RSpec.feature "AddToCarts", type: :feature, js: true do
     visit '/'
     first('button.btn.btn-primary').click
     #DEBUG
-    save_screenshot 'add-to-cart.jpg'
+    # save_screenshot 'add-to-cart.jpg'
     #VERIFY
     expect(page).to have_text 'My Cart (1)'
   end
