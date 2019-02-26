@@ -16,4 +16,6 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     end
   end
 
+  scenario 'A user can navigate from the home page to the product detail page by clicking on a product'
+
 end
