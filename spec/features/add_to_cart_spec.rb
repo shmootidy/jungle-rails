@@ -15,4 +15,6 @@ RSpec.feature "AddToCarts", type: :feature, js: true do
       )
     end
   end
+
+  scenario 'A user can add an item to cart by clicking the Add to Cart button on a product on the home page'
 end
