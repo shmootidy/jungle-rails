@@ -19,10 +19,13 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
 
   scenario 'A user can navigate from the home page to the product detail page by clicking on a product' do
     #ACT
+    visit '/'
+    first('article.product header a').click
     #DEBUG
-    save_screenshot('screenshot.png')
+    sleep 2
+    save_screenshot('product-details.png')
     #VERIFY
-
+    expect(page).to have_css 'article.product-detail'
   end
 
 end
